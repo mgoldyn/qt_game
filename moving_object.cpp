@@ -3,15 +3,14 @@
 #include <QTimer>
 #include <QGraphicsScene>
 
-moving_object::moving_object(const unsigned int object_width,
-                             const unsigned int object_height,
+moving_object::moving_object(const QString image_dir,
                              const unsigned int step_size,
                              const bool direction)
 {
     this->step_size = step_size;
     this->direction = direction;
-    //    drew the rect
-    setRect(consts::player_width / 2 - object_width / 2, 0, object_width, object_height);
+
+    setPixmap(QPixmap(image_dir));
 
     //    connect
     QTimer* timer = new QTimer();

@@ -3,4 +3,9 @@
         <file>laser-shot.wav</file>
         <file>jobro.wav</file>
     </qresource>
+    <qresource prefix="/images">
+        <file>kaczka.jpeg</file>
+        <file>kaczka.png</file>
+        <file>gracz.png</file>
+    </qresource>
 </RCC>

@@ -9,8 +9,8 @@
 
 player::player()
 {
-    bulletsound = new QMediaPlayer();
-    bulletsound->setMedia(QUrl("qrc:/sounds/jobro.wav"));
+    bullet_sound = new QMediaPlayer();
+    bullet_sound->setMedia(QUrl("qrc:/sounds/jobro.wav"));
 }
 
 void player::keyPressEvent(QKeyEvent* event)
@@ -41,9 +41,16 @@ void player::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_Space:
         bullet* bull = new bullet();
-        bull->setPos(x(), y() - consts::bullet_height);
+        bull->setPos(x() - 8 + consts::player_width / 2, y() - consts::bullet_height);
         scene()->addItem(bull);
-        bulletsound->play();
+        if(bullet_sound->state() == QMediaPlayer::PlayingState)
+        {
+            bullet_sound->setPosition(0);
+        }
+        else
+        {
+            bullet_sound->play();
+        }
         break;
     }
 }

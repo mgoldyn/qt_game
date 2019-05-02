@@ -1,12 +1,12 @@
 #ifndef MYRECT_H
 #define MYRECT_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
 class QMediaPlayer;
 
-class player : public QObject, public QGraphicsRectItem
+class player : public QObject, public QGraphicsPixmapItem
 {
 protected:
     Q_OBJECT
@@ -16,6 +16,6 @@ public:
 public slots:
     void spawn();
 private:
-    QMediaPlayer* bulletsound;
+    QMediaPlayer* bullet_sound;
 };
 #endif // MYRECT_H

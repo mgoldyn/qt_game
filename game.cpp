@@ -17,9 +17,9 @@ game::game(QWidget *parent){
     setFixedSize(consts::screen_width, consts::screen_height);
 
     player* player_0 = new player();
-    player_0->setRect(0, 0, consts::player_width, consts::player_height);
+    player_0->setPixmap(QPixmap(":/images/gracz.png"));
     player_0->setPos(static_cast<unsigned int>(width() / 2)  - consts::player_width / 2,
-                     height() - player_0->rect().width());
+                     height() - consts::player_width);
     player_0->setFlag(QGraphicsItem::ItemIsFocusable);
     player_0->setFocus();
     score_0 = new text(nullptr, QString("Score:"), Qt::blue, 16);

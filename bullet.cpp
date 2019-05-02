@@ -21,7 +21,7 @@ void bullet::move()
         }
     }
     setPos(x(), y() - this->step_size);
-    if(pos().y() + rect().height() < 0)
+    if(pos().y() < 0)
     {
         scene()->removeItem(this);
         delete this;

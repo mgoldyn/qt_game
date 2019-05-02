@@ -9,11 +9,10 @@ class enemy : public moving_object
 {
     Q_OBJECT
 public:
-    enemy(const unsigned int object_width  = consts::enemy0_width,
-          const unsigned int object_height = consts::enemy0_height,
-          const unsigned int step_size     = consts::enemy_step,
-          const bool direction             = consts::direction_up)
-        : moving_object(object_width, object_height, step_size, direction)
+    enemy(const QString image_dir = ":/images/kaczka.jpeg",
+          const unsigned int step_size     = consts::step_size,
+          const bool direction             = consts::direction_down)
+       : moving_object(image_dir, step_size, direction)
     {
         moving_object::setPos(rand() % 700, 0);
     }
