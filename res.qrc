@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>laser-shot.wav</file>
+        <file>jobro.wav</file>
+    </qresource>
+</RCC>
