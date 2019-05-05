@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bullet.cpp \
+    dialog.cpp \
     enemy.cpp \
     enemy0.cpp \
     game.cpp \
@@ -37,9 +38,11 @@ SOURCES += \
 HEADERS += \
     bullet.h \
     consts.h \
+    dialog.h \
     enemy.h \
     enemy0.h \
     game.h \
+    input_structs.h \
     moving_object.h \
     player.h \
     text_object.h

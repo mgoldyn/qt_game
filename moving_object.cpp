@@ -5,15 +5,13 @@
 
 moving_object::moving_object(const QString image_dir,
                              const unsigned int step_size,
-                             const bool direction)
+                             const unsigned int tier)
 {
     this->step_size = step_size;
-    this->direction = direction;
+    this->tier      = tier;
+    QTimer* timer = new QTimer();
 
     setPixmap(QPixmap(image_dir));
-
-    //    connect
-    QTimer* timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(50);
 }

@@ -7,5 +7,7 @@
         <file>kaczka.jpeg</file>
         <file>kaczka.png</file>
         <file>gracz.png</file>
+        <file>enemy_1.png</file>
+        <file>kaczka2.png</file>
     </qresource>
 </RCC>

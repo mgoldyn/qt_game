@@ -5,15 +5,13 @@
 #include "text_object.h"
 
 #include <QGraphicsView>
-#include <QWidget>
 #include <QGraphicsScene>
-
 
 class game : public QGraphicsView
 {
 public:
-    game(QWidget *parent = 0);
-
+    game();
+    QApplication* app ;
     QGraphicsScene* scene;
     player* player0;
     text* score_0;

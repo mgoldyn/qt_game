@@ -5,21 +5,21 @@
 #include <QFont>
 #include <QMediaPlayer>
 
-game::game(QWidget *parent){
+game::game(){
     // create the scene
     QGraphicsScene* scene = new QGraphicsScene();
 
     setScene(scene);
     scene->setSceneRect(0, 0, consts::screen_width, consts::screen_height);
-    setBackgroundBrush(QBrush(Qt::white, Qt::SolidPattern));
+    setBackgroundBrush(QBrush(Qt::green , Qt::SolidPattern));
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(consts::screen_width, consts::screen_height);
 
     player* player_0 = new player();
     player_0->setPixmap(QPixmap(":/images/gracz.png"));
-    player_0->setPos(static_cast<unsigned int>(width() / 2)  - consts::player_width / 2,
-                     height() - consts::player_width);
+    player_0->setPos(consts::player_wdh_ref,
+                     consts::player_hgt_ref);
     player_0->setFlag(QGraphicsItem::ItemIsFocusable);
     player_0->setFocus();
     score_0 = new text(nullptr, QString("Score:"), Qt::blue, 16);
