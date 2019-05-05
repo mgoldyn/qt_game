@@ -72,11 +72,6 @@ void player::keyPressEvent(QKeyEvent* event)
         make_bullets();
 }
 
-void player::mouseMoveEvent(QMouseEvent *event)
-{
-    this->pos() = event->pos();
-}
-
 void player::spawn()
 {
     enemy* enemy_0 = new enemy();
