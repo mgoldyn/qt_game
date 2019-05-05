@@ -1,25 +1,41 @@
 #include "game.h"
 #include "enemy.h"
-#include <QTimer>
 #include <QGraphicsTextItem>
 #include <QFont>
 #include <QMediaPlayer>
 
+void game::mouseMoveEvent(QMouseEvent *event)
+{
+    player_0->setPos(event->pos());
+}
+
+void game::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::MouseButton::LeftButton)
+    {
+        player_0->make_bullets();
+        timer_0->start(150);
+    }
+
+}
+
+void game::mouseReleaseEvent(QMouseEvent *event)
+{
+    timer_0->stop();
+}
+
 game::game(){
     // create the scene
     QGraphicsScene* scene = new QGraphicsScene();
-
+    QGraphicsView::unsetCursor();
     setScene(scene);
     scene->setSceneRect(0, 0, consts::screen_width, consts::screen_height);
     setBackgroundBrush(QBrush(Qt::green , Qt::SolidPattern));
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(consts::screen_width, consts::screen_height);
-
-    player* player_0 = new player();
+    player_0 = new player();
     player_0->setPixmap(QPixmap(":/images/gracz.png"));
-    player_0->setPos(consts::player_wdh_ref,
-                     consts::player_hgt_ref);
     player_0->setFlag(QGraphicsItem::ItemIsFocusable);
     player_0->setFocus();
     score_0 = new text(nullptr, QString("Score:"), Qt::blue, 16);
@@ -30,7 +46,10 @@ game::game(){
 
     //    spwan enemies
     QTimer* timer = new QTimer();
-    QObject::connect(timer, SIGNAL(timeout()), player_0, SLOT(spawn()));
+    timer_0 = new QTimer();
+    QObject::connect(timer,   SIGNAL(timeout()), player_0, SLOT(spawn()));
+    QObject::connect(this->timer_0, SIGNAL(timeout()), player_0, SLOT(make_bullets()));
+
     timer->start(2000);
 
 //    background music

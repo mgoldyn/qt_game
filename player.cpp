@@ -31,6 +31,7 @@ void player::make_bullets()
         case 1:
         {
             add_bullet(1, 11);
+
             break;
         }
 
@@ -53,6 +54,7 @@ void player::make_bullets()
         add_bullet(42, 15);
         add_bullet(43, 15);
     }
+
 }
 
 void player::keyPressEvent(QKeyEvent* event)
@@ -64,12 +66,19 @@ void player::keyPressEvent(QKeyEvent* event)
         if(pos().x() + consts::step_size + consts::player_width < consts::screen_width)
             setPos(x() + consts::step_size, y());
     if(event->key() == Qt::Key_Down)
-        if(this->bullet_tier)
-            this->bullet_tier--;
+        if(pos().y() < 800)
+            setPos(x(), y() + consts::step_size);
     if(event->key() == Qt::Key_Up)
-        this->bullet_tier++;
+        if(pos().y() > 0)
+            setPos(x(), y() - consts::step_size);
     if(event->key() == Qt::Key_Space)
         make_bullets();
+    if(event->key() == Qt::Key_K)
+        if(this->bullet_tier)
+            this->bullet_tier--;
+    if(event->key() == Qt::Key_L)
+        this->bullet_tier++;
+
 }
 
 void player::spawn()
