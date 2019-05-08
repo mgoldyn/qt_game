@@ -14,6 +14,7 @@ const unsigned int enemy0_width   = 100;
 const unsigned int enemy0_height  = 100;
 const unsigned int bullet_width   = 10;
 const unsigned int bullet_height  = 25;
+const unsigned int bullet_step    = 30;
 
 const bool direction_up   = true;
 const bool direction_down = false;

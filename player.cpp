@@ -40,23 +40,23 @@ void player::make_bullets()
     {
     case 1:
     {
-        add_bullet(1, 11);
+        add_bullet(1, 7);
 
         break;
     }
 
     case 2:
     {
-        add_bullet(21, 7);
-        add_bullet(22, 7);
+        add_bullet(21, 9);
+        add_bullet(22, 9);
         break;
     }
 
     case 3:
     {
-        add_bullet(31, 20);
-        add_bullet(32, 20);
-        add_bullet(33, 20);
+        add_bullet(31, 14);
+        add_bullet(32, 14);
+        add_bullet(33, 14);
         break;
     }
     case 4:
@@ -65,26 +65,26 @@ void player::make_bullets()
         add_bullet(43, 15);
         break;
     case 5:
-        add_bullet(51,15);
-        add_bullet(52,15);
-        add_bullet(53,15);
-        add_bullet(54,15);
+        add_bullet(51,25);
+        add_bullet(52,25);
+        add_bullet(53,25);
+        add_bullet(54,25);
         break;
     case 6:
-        add_bullet(61,15);
-        add_bullet(62,15);
-        add_bullet(63,15);
-        add_bullet(64,15);
-        add_bullet(65,15);
+        add_bullet(61,27);
+        add_bullet(62,27);
+        add_bullet(63,27);
+        add_bullet(64,27);
+        add_bullet(65,27);
         break;
     case 7:
-        add_bullet(71,15);
-        add_bullet(72,15);
-        add_bullet(73,15);
-        add_bullet(74,15);
-        add_bullet(75,15);
-        add_bullet(75,15);
-        add_bullet(75,15);
+        add_bullet(71,30);
+        add_bullet(72,30);
+        add_bullet(73,30);
+        add_bullet(74,30);
+        add_bullet(75,30);
+        add_bullet(75,30);
+        add_bullet(75,30);
         break;
 
     }

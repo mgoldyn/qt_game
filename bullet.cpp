@@ -164,9 +164,12 @@ void bullet::move()
     {
         if(typeid(*(colliding_items[i])) == typeid(enemy))
         {
-            gift* gift_0 = new gift();
-            gift_0->set_attack_params(input_pack(x(),y()));
-            scene()->addItem(gift_0);
+            if(1 + rand()%10 == 2)
+            {
+                gift* gift_0 = new gift();
+                gift_0->set_attack_params(input_pack(x(),y()));
+                scene()->addItem(gift_0);
+            }
 
             game_0->score_0->change_value(1);
             scene()->removeItem(colliding_items[i]);
@@ -176,7 +179,9 @@ void bullet::move()
             return;
         }
     }
+
     set_bullet_trajectory();
+
     if(pos().y() < 0 || pos().x() < 0 || pos().x() > consts::screen_width)
     {
         scene()->removeItem(this);

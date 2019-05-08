@@ -11,5 +11,6 @@
         <file>kaczka2.png</file>
         <file>enemy_1_angry.png</file>
         <file>gift.png</file>
+        <file>space_enemy.png</file>
     </qresource>
 </RCC>

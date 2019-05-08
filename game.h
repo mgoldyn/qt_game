@@ -20,6 +20,7 @@ private:
 
 public:
     game();
+    bool do_spawn;
     QApplication* app;
     QGraphicsScene* scene;
     player* player_0 = nullptr;

@@ -12,7 +12,7 @@ class bullet : public moving_object
     Q_OBJECT
 public:
     bullet(const QString image_dir      = ":/images/kaczka.png",
-           const unsigned int step_size = consts::step_size,
+           const unsigned int step_size = consts::bullet_step,
            const unsigned int tier      = 0)
         : moving_object(image_dir, step_size, tier)
     {

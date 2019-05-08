@@ -8,8 +8,9 @@ game::game()
 {
     // create the scene
     enemy_counter = 0;
-    score_0 = new text(nullptr, QString("Score:"), Qt::blue, 16);
-    life_0  = new text(nullptr, QString("Life:"), Qt::red, 15);
+    do_spawn = false;
+    score_0  = new text(nullptr, QString("Score:"), Qt::blue, 16);
+    life_0   = new text(nullptr, QString("Life:"), Qt::red, 15);
     player_0 = new player(this);
 
     QGraphicsScene* scene = new QGraphicsScene();
@@ -64,12 +65,13 @@ void game::mouseReleaseEvent(QMouseEvent* event)
 }
 void player::spawn()
 {
-    if(game0->score_0->get_value() % 10== 0 && game0->score_0->get_value())
+    if(game0->do_spawn)
     {
         enemy* enemy_0 = new enemy(":/images/enemy_1_angry.png", 40, 0);
+        game0->do_spawn = false;
         scene()->addItem(enemy_0);
     }
-    else if(game0->enemy_counter < 5)
+    if(game0->enemy_counter < 10)
     {
         enemy* enemy_0 = new enemy();
         scene()->addItem(enemy_0);
@@ -77,6 +79,7 @@ void player::spawn()
     }
     else
     {
+        game0->do_spawn = true;
         game0->enemy_counter = 0;
     }
 }
