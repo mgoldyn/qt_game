@@ -12,12 +12,15 @@
 class game : public QGraphicsView
 {
 private:
+    friend class player;
+    unsigned int enemy_counter;
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent* event);
+
 public:
     game();
-    QApplication* app ;
+    QApplication* app;
     QGraphicsScene* scene;
     player* player_0 = nullptr;
     text* score_0;

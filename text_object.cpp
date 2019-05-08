@@ -1,10 +1,10 @@
 #include "text_object.h"
 #include "QFont"
 
-text::text(QGraphicsItem *parent,
-                         const QString name,
-                         const unsigned int colour,
-                         const int font_size)
+text::text(QGraphicsItem* parent,
+           const QString name,
+           const unsigned int colour,
+           const int font_size)
 {
     this->name = name;
     if(name == "Life:")
@@ -20,7 +20,6 @@ text::text(QGraphicsItem *parent,
     setPlainText(QString(name) + QString::number(value)); // Score: 0
     setDefaultTextColor(colour);
     setFont(QFont("times", font_size));
-
 }
 
 int text::get_value()

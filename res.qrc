@@ -9,5 +9,7 @@
         <file>gracz.png</file>
         <file>enemy_1.png</file>
         <file>kaczka2.png</file>
+        <file>enemy_1_angry.png</file>
+        <file>gift.png</file>
     </qresource>
 </RCC>
