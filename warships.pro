@@ -30,8 +30,10 @@ SOURCES += \
     game.cpp \
     gift.cpp \
         main.cpp \
+    main_window.cpp \
     moving_object.cpp \
     player.cpp \
+    text_file.cpp \
     text_object.cpp
 
 HEADERS += \
@@ -41,11 +43,13 @@ HEADERS += \
     game.h \
     gift.h \
     input_structs.h \
+    main_window.h \
     moving_object.h \
     player.h \
     text_object.h
 
-FORMS +=
+FORMS += \
+    main_window.ui
 
 RESOURCES += \
     res.qrc

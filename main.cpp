@@ -1,18 +1,21 @@
 #include "game.h"
 #include "consts.h"
+#include "main_window.h"
+#include "text_file.cpp"
 
 #include <QApplication>
 #include <QGraphicsView>
 #include <QTimer>
 
-game* game_0;
+
 
 int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
-    game_0 = new game();
-    game_0->setCursor(Qt::BlankCursor);
-    game_0->show();
+    main_window gui_window;
+    gui_window.show();
+    check_file();
+
 
 
 
