@@ -55,7 +55,7 @@ void game::mousePressEvent(QMouseEvent* event)
     }
     if(event->button() == Qt::MouseButton::RightButton)
     {
-        player_0->add_bullet(1, consts::step_size * 10,":/images/kaczka2.png");
+        player_0->add_bullet(1, consts::step_size * 10, ":/images/kaczka2.png");
     }
 }
 

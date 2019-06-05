@@ -25,8 +25,10 @@ const uint32 bullet_step    = 8;
 const bool direction_up   = true;
 const bool direction_down = false;
 
-namespace bul_params
+namespace bullet
 {
+    const uint32 speed = 8;
+    const uint32 max_tier = 6;
     const uint32 multiplier[6] = {0, 1, 2, 3, 4, 5};
     const uint32 divisor[3]    = {5, 6, 7};
     const UINT_TUPLE t1_center_pos (multiplier[2], divisor[0]);

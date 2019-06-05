@@ -56,95 +56,95 @@ void bullet::set_attack_params(input_pack input)
     {
     case 1: // level 1
     {
-        set_relative_pos(input, consts::bul_params::t1_center_pos);
+        set_relative_pos(input, consts::bullet::t1_center_pos);
         break;
     }
 
     case 21: // level 2
     {
-        set_relative_pos(input, consts::bul_params::t2_left_pos);
+        set_relative_pos(input, consts::bullet::t2_left_pos);
         break;
     }
 
     case 22:
     {
-        set_relative_pos(input, consts::bul_params::t2_right_pos);
+        set_relative_pos(input, consts::bullet::t2_right_pos);
         break;
     }
 
     case 31:
     {
-        set_relative_pos(input, consts::bul_params::t3_left_pos);
+        set_relative_pos(input, consts::bullet::t3_left_pos);
         break;
     }
     case 32:
     {
-        set_relative_pos(input, consts::bul_params::t3_center_pos);
+        set_relative_pos(input, consts::bullet::t3_center_pos);
         break;
     }
     case 33:
     {
-        set_relative_pos(input, consts::bul_params::t3_right_pos);
+        set_relative_pos(input, consts::bullet::t3_right_pos);
         break;
     }
     case 41:
     {
-        set_relative_pos(input, consts::bul_params::t4_left_pos);
+        set_relative_pos(input, consts::bullet::t4_left_pos);
         break;
     }
     case 42:
     {
-        set_relative_pos(input, consts::bul_params::t4_center_pos);
+        set_relative_pos(input, consts::bullet::t4_center_pos);
         break;
     }
     case 43:
     {
-        set_relative_pos(input, consts::bul_params::t4_right_pos);
+        set_relative_pos(input, consts::bullet::t4_right_pos);
         break;
     }
     case 51:
     {
-        set_relative_pos(input, consts::bul_params::t5_l_left_pos);
+        set_relative_pos(input, consts::bullet::t5_l_left_pos);
         break;
     }
     case 52:
     {
-        set_relative_pos(input, consts::bul_params::t5_left_pos);
+        set_relative_pos(input, consts::bullet::t5_left_pos);
         break;
     }
     case 53:
     {
-        set_relative_pos(input, consts::bul_params::t5_right_pos);
+        set_relative_pos(input, consts::bullet::t5_right_pos);
         break;
     }
     case 54:
     {
-        set_relative_pos(input, consts::bul_params::t5_r_right_pos);
+        set_relative_pos(input, consts::bullet::t5_r_right_pos);
         break;
     }
     case 61:
     {
-        set_relative_pos(input, consts::bul_params::t6_l_left_pos);
+        set_relative_pos(input, consts::bullet::t6_l_left_pos);
         break;
     }
     case 62:
     {
-        set_relative_pos(input, consts::bul_params::t6_left_pos);
+        set_relative_pos(input, consts::bullet::t6_left_pos);
         break;
     }
     case 63:
     {
-        set_relative_pos(input, consts::bul_params::t6_center_pos);
+        set_relative_pos(input, consts::bullet::t6_center_pos);
         break;
     }
     case 64:
     {
-        set_relative_pos(input, consts::bul_params::t6_right_pos);
+        set_relative_pos(input, consts::bullet::t6_right_pos);
         break;
     }
     case 65:
     {
-        set_relative_pos(input, consts::bul_params::t6_r_right_pos);
+        set_relative_pos(input, consts::bullet::t6_r_right_pos);
         break;
     }
     }
@@ -165,6 +165,10 @@ void bullet::set_bullet_trajectory()
     else if(is_right())
     {
         setPos(x() + 3, y() - this->step_size);
+    }
+    else
+    {
+        setPos(x(), y() - this->step_size);
     }
 }
 
