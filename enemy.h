@@ -13,17 +13,17 @@ class enemy : public moving_object
     void add_gift();
     void find_direction();
     void set_pos();
+    void collide_handle();
+    void set_attack_params(input_pack input)
+    {
+        input.sound->stop();
+    }
 
 public:
     unsigned int hp;
     enemy(const QString image_dir      = ":/images/enemy_1.png",
           const unsigned int step_size = consts::enemy_step,
           const unsigned int tier      = 0);
-    void set_attack_params(input_pack input)
-    {
-        input.sound->stop();
-    }
-    void collide_handle();
     void move();
 };
 

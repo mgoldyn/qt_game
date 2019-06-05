@@ -14,8 +14,11 @@ class bullet : public moving_object
     bool is_left();
     bool is_right();
     void set_relative_pos(const input_pack input,
-                          const unsigned rel_x,
-                          const unsigned rel_y);
+                          const std::tuple<uint32, uint32> rel_pos);
+    void set_pos(const double x, const double y);
+    void sound(QMediaPlayer* bullet_sound);
+    void set_bullet_trajectory();
+
 public:
     bullet(const QString image_dir      = ":/images/kaczka.png",
            const unsigned int step_size = consts::bullet_step,
@@ -23,11 +26,9 @@ public:
         : moving_object(image_dir, step_size, tier)
     {
     }
-    void set_pos(const double x, const double y);
-    void sound(QMediaPlayer* bullet_sound);
-    void set_attack_params(input_pack input);
-    void set_bullet_trajectory();
     void move();
+    void set_attack_params(input_pack input);
+
 };
 
 #endif // BULLET_H

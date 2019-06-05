@@ -55,13 +55,11 @@ void player::make_bullets()
 
         break;
     }
-
     case 2:
     {
         add_bullets(bullet_tier, bullet_tier, 50);
         break;
     }
-
     case 3:
     {
         add_bullets(bullet_tier, bullet_tier, 50);
@@ -79,32 +77,13 @@ void player::make_bullets()
     case 7:
         add_bullets(bullet_tier, bullet_tier, 50);
         break;
-
+    default:
+        game0->score_0++;
     }
 }
 
 void player::keyPressEvent(QKeyEvent* event)
 {
-    if(event->key() == Qt::Key_Left)
-        if(pos().x() - consts::step_size > 0)
-            setPos(x() - consts::step_size, y());
-    if(event->key() == Qt::Key_Right)
-        if(pos().x() + consts::step_size + consts::player_width < consts::screen_width)
-            setPos(x() + consts::step_size, y());
-    if(event->key() == Qt::Key_Down)
-    {
-        if(pos().y() < 800)
-            setPos(x(), y() + consts::step_size);
-        this->bullet_tier--;
-    }
-    if(event->key() == Qt::Key_Up)
-    {
-        if(pos().y() > 0)
-            setPos(x(), y() - consts::step_size);
-        this->bullet_tier++;
-    }
-    if(event->key() == Qt::Key_Space)
-        make_bullets();
     if(event->key() == Qt::Key_K)
         if(this->bullet_tier)
             this->bullet_tier--;

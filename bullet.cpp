@@ -8,6 +8,7 @@
 #include <QList>
 extern game* game_0;
 
+//check if bullet should go right, left or forward
 bool bullet::is_forward()
 {
    return this->tier == 1 || this->tier == 21 || this->tier == 22 || this->tier == 31 ||
@@ -24,11 +25,11 @@ bool bullet::is_right()
     return tier == 43 || tier == 53 || tier == 54 || tier == 64 || tier == 65;
 }
 
+//set pos relative to player
 void bullet::set_relative_pos(const input_pack input,
-                              const unsigned rel_a,
-                              const unsigned rel_b)
+                              const std::tuple<uint32, uint32> rel_pos)
 {
-    set_pos(input.player_x + (rel_a * consts::player_width) / rel_b,
+    set_pos(input.player_x + (std::get<0>(rel_pos) * consts::player_width) / std::get<1>(rel_pos),
             input.player_y - consts::bullet_height);
 }
 
@@ -55,95 +56,95 @@ void bullet::set_attack_params(input_pack input)
     {
     case 1: // level 1
     {
-        set_relative_pos(input, 2, 5);
+        set_relative_pos(input, consts::bul_params::t1_center_pos);
         break;
     }
 
     case 21: // level 2
     {
-        set_relative_pos(input, 1, 5);
+        set_relative_pos(input, consts::bul_params::t2_left_pos);
         break;
     }
 
     case 22:
     {
-        set_relative_pos(input, 3, 5);
+        set_relative_pos(input, consts::bul_params::t2_right_pos);
         break;
     }
 
     case 31:
     {
-        set_relative_pos(input, 1, 5);
+        set_relative_pos(input, consts::bul_params::t3_left_pos);
         break;
     }
     case 32:
     {
-        set_relative_pos(input, 2, 5);
+        set_relative_pos(input, consts::bul_params::t3_center_pos);
         break;
     }
     case 33:
     {
-        set_relative_pos(input, 3, 5);
+        set_relative_pos(input, consts::bul_params::t3_right_pos);
         break;
     }
     case 41:
     {
-        set_relative_pos(input, 1, 5);
+        set_relative_pos(input, consts::bul_params::t4_left_pos);
         break;
     }
     case 42:
     {
-        set_relative_pos(input, 2, 5);
+        set_relative_pos(input, consts::bul_params::t4_center_pos);
         break;
     }
     case 43:
     {
-        set_relative_pos(input, 3, 5);
+        set_relative_pos(input, consts::bul_params::t4_right_pos);
         break;
     }
     case 51:
     {
-        set_relative_pos(input, 1, 6);
+        set_relative_pos(input, consts::bul_params::t5_l_left_pos);
         break;
     }
     case 52:
     {
-        set_relative_pos(input, 2, 6);
+        set_relative_pos(input, consts::bul_params::t5_left_pos);
         break;
     }
     case 53:
     {
-        set_relative_pos(input, 3, 6);
+        set_relative_pos(input, consts::bul_params::t5_right_pos);
         break;
     }
     case 54:
     {
-        set_relative_pos(input, 4, 6);
+        set_relative_pos(input, consts::bul_params::t5_r_right_pos);
         break;
     }
     case 61:
     {
-        set_relative_pos(input, 1, 7);
+        set_relative_pos(input, consts::bul_params::t6_l_left_pos);
         break;
     }
     case 62:
     {
-        set_relative_pos(input, 2, 7);
+        set_relative_pos(input, consts::bul_params::t6_left_pos);
         break;
     }
     case 63:
     {
-        set_relative_pos(input, 3, 7);
+        set_relative_pos(input, consts::bul_params::t6_center_pos);
         break;
     }
     case 64:
     {
-        set_relative_pos(input, 4, 7);
+        set_relative_pos(input, consts::bul_params::t6_right_pos);
         break;
     }
     case 65:
     {
-        set_relative_pos(input, 5, 7);
+        set_relative_pos(input, consts::bul_params::t6_r_right_pos);
         break;
     }
     }
