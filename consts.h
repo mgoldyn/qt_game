@@ -2,8 +2,8 @@
 #define CONSTS_H
 namespace consts
 {
-const unsigned int step_size      = 20;
-const unsigned int enemy_step     = 16;
+const unsigned int step_size      = 1;
+const unsigned int enemy_step     = 6;
 const unsigned int screen_width   = 1200;
 const unsigned int screen_height  = 900;
 const unsigned int player_width   = 100;
@@ -14,7 +14,7 @@ const unsigned int enemy0_width   = 100;
 const unsigned int enemy0_height  = 100;
 const unsigned int bullet_width   = 10;
 const unsigned int bullet_height  = 25;
-const unsigned int bullet_step    = 30;
+const unsigned int bullet_step    = 8;
 
 const bool direction_up   = true;
 const bool direction_down = false;

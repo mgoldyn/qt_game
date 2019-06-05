@@ -10,6 +10,12 @@ class QMediaPlayer;
 class bullet : public moving_object
 {
     Q_OBJECT
+    bool is_forward();
+    bool is_left();
+    bool is_right();
+    void set_relative_pos(const input_pack input,
+                          const unsigned rel_x,
+                          const unsigned rel_y);
 public:
     bullet(const QString image_dir      = ":/images/kaczka.png",
            const unsigned int step_size = consts::bullet_step,

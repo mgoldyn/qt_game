@@ -13,7 +13,7 @@ moving_object::moving_object(const QString image_dir,
 
     setPixmap(QPixmap(image_dir));
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start(50);
+    timer->start(10);
 }
 
 // void moving_object::move()
