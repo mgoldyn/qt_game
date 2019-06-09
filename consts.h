@@ -8,19 +8,19 @@
 
 namespace consts
 {
-const uint32 step_size      = 1;
-const uint32 enemy_step     = 6;
-const uint32 screen_width   = 1200;
-const uint32 screen_height  = 900;
-const uint32 player_width   = 100;
-const uint32 player_height  = 100;
-const uint32 player_wdh_ref = screen_width / 2 - player_width / 2;
-const uint32 player_hgt_ref = screen_height - player_height;
-const uint32 enemy0_width   = 100;
-const uint32 enemy0_height  = 100;
-const uint32 bullet_width   = 10;
-const uint32 bullet_height  = 25;
-const uint32 bullet_step    = 8;
+const unsigned int step_size      = 20;
+const unsigned int enemy_step     = 16;
+const unsigned int screen_width   = 1200;
+const unsigned int screen_height  = 900;
+const unsigned int player_width   = 100;
+const unsigned int player_height  = 100;
+const unsigned int player_wdh_ref = screen_width / 2 - player_width / 2;
+const unsigned int player_hgt_ref = screen_height - player_height;
+const unsigned int enemy0_width   = 100;
+const unsigned int enemy0_height  = 100;
+const unsigned int bullet_width   = 10;
+const unsigned int bullet_height  = 25;
+const unsigned int bullet_step    = 30;
 
 const bool direction_up   = true;
 const bool direction_down = false;

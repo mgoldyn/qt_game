@@ -28,56 +28,63 @@ void player::tier_up()
     }
 }
 
-void player::add_bullet(const unsigned int tier         = 1,
-                        const unsigned int bullet_speed = consts::bullet_step,
-                        const QString image_dir         = ":/images/kaczka.png")
+void player::add_bullet(const unsigned int tier      = 1,
+                        const unsigned int step_size = consts::step_size,
+                        const QString image_dir      = ":/images/kaczka.png")
 {
-    bullet* bull = new bullet(image_dir, bullet_speed, tier);
+    bullet* bull = new bullet(image_dir, step_size, tier);
     bull->set_attack_params(input_pack(this->x(), this->y(), bullet_sound));
     scene()->addItem(bull);
 }
 
-void player::add_bullets(      unsigned int first_case,
-                         const unsigned int num_of_cases,
-                         const unsigned int bullet_speed = consts::bullet::speed)
-{
-    first_case = 10 * first_case + 1;
-    for (unsigned int case_num = first_case; case_num <= first_case + num_of_cases; case_num++)
-    {
-        add_bullet(case_num, bullet_speed);
-    }
-}
-
 void player::make_bullets()
 {
-    switch(bullet_tier)
+    switch(this->bullet_tier)
     {
     case 1:
     {
-        add_bullet(bullet_tier);
+        add_bullet(1, 7);
         break;
     }
     case 2:
     {
-        add_bullets(bullet_tier, bullet_tier);
+        add_bullet(21, 9);
+        add_bullet(22, 9);
         break;
     }
     case 3:
     {
-        add_bullets(bullet_tier, bullet_tier);
+        add_bullet(31, 14);
+        add_bullet(32, 14);
+        add_bullet(33, 14);
         break;
     }
     case 4:
-        add_bullets(bullet_tier, bullet_tier);
+        add_bullet(41, 15);
+        add_bullet(42, 15);
+        add_bullet(43, 15);
         break;
     case 5:
-        add_bullets(bullet_tier, bullet_tier - 1);
+        add_bullet(51,25);
+        add_bullet(52,25);
+        add_bullet(53,25);
+        add_bullet(54,25);
         break;
     case 6:
-        add_bullets(bullet_tier, bullet_tier - 1);
+        add_bullet(61,27);
+        add_bullet(62,27);
+        add_bullet(63,27);
+        add_bullet(64,27);
+        add_bullet(65,27);
         break;
     case 7:
-        add_bullets(bullet_tier, bullet_tier);
+        add_bullet(71,30);
+        add_bullet(72,30);
+        add_bullet(73,30);
+        add_bullet(74,30);
+        add_bullet(75,30);
+        add_bullet(75,30);
+        add_bullet(75,30);
         break;
     }
 }

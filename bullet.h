@@ -10,15 +10,6 @@ class QMediaPlayer;
 class bullet : public moving_object
 {
     Q_OBJECT
-    bool is_forward();
-    bool is_left();
-    bool is_right();
-    void set_relative_pos(const input_pack input,
-                          const std::tuple<uint32, uint32> rel_pos);
-    void set_pos(const double x, const double y);
-    void sound(QMediaPlayer* bullet_sound);
-    void set_bullet_trajectory();
-
 public:
     bullet(const QString image_dir      = ":/images/kaczka.png",
            const unsigned int step_size = consts::bullet_step,
