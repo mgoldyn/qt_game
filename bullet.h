@@ -17,9 +17,11 @@ public:
         : moving_object(image_dir, step_size, tier)
     {
     }
-    void move();
+    void set_pos(const double x, const double y);
+    void sound(QMediaPlayer* bullet_sound);
     void set_attack_params(input_pack input);
-
+    void set_bullet_trajectory();
+    void move();
 };
 
 #endif // BULLET_H

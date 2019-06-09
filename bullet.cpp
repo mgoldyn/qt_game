@@ -98,7 +98,6 @@ void bullet::set_attack_params(input_pack input)
     }
     case 53:
     {
-        set_relative_pos(input, consts::bullet::t5_right_pos);
         set_pos(input.player_x + (4 * consts::player_width) / 6,
                 input.player_y - consts::bullet_height);
         break;
@@ -155,10 +154,6 @@ void bullet::set_bullet_trajectory()
     else if(tier == 43 || tier == 53 || tier == 54 || tier == 64 || tier == 65)
     {
         setPos(x() + 3, y() - this->step_size);
-    }
-    else
-    {
-        setPos(x(), y() - this->step_size);
     }
 }
 

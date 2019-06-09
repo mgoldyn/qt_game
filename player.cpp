@@ -22,10 +22,7 @@ player::player(game* game0)
 
 void player::tier_up()
 {
-    if(bullet_tier < consts::bullet::max_tier)
-    {
-        bullet_tier++;
-    }
+    this->bullet_tier++;
 }
 
 void player::add_bullet(const unsigned int tier      = 1,
@@ -44,14 +41,17 @@ void player::make_bullets()
     case 1:
     {
         add_bullet(1, 7);
+
         break;
     }
+
     case 2:
     {
         add_bullet(21, 9);
         add_bullet(22, 9);
         break;
     }
+
     case 3:
     {
         add_bullet(31, 14);
@@ -86,11 +86,32 @@ void player::make_bullets()
         add_bullet(75,30);
         add_bullet(75,30);
         break;
+
     }
 }
 
 void player::keyPressEvent(QKeyEvent* event)
 {
+    if(event->key() == Qt::Key_Left)
+        if(pos().x() - consts::step_size > 0)
+            setPos(x() - consts::step_size, y());
+    if(event->key() == Qt::Key_Right)
+        if(pos().x() + consts::step_size + consts::player_width < consts::screen_width)
+            setPos(x() + consts::step_size, y());
+    if(event->key() == Qt::Key_Down)
+    {
+        if(pos().y() < 800)
+            setPos(x(), y() + consts::step_size);
+        this->bullet_tier--;
+    }
+    if(event->key() == Qt::Key_Up)
+    {
+        if(pos().y() > 0)
+            setPos(x(), y() - consts::step_size);
+        this->bullet_tier++;
+    }
+    if(event->key() == Qt::Key_Space)
+        make_bullets();
     if(event->key() == Qt::Key_K)
         if(this->bullet_tier)
             this->bullet_tier--;

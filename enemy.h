@@ -13,11 +13,6 @@ class enemy : public moving_object
 
     void find_direction();
     void set_pos();
-    void collide_handle();
-    void set_attack_params(input_pack input)
-    {
-        input.sound->stop();
-    }
 
 public:
     enemy(const QString image_dir      = ":/images/enemy_1.png",
