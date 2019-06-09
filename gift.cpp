@@ -11,8 +11,10 @@ void gift::move()
     for(int i = 0, n = colliding_items.size(); i < n; i++)
     {
         if(typeid(*(colliding_items[i])) == typeid(player))
-        {
-            game_0->player_0->tier_up();
+        {   if (game_0->player_0->bullet_tier < 6)
+            {
+                game_0->player_0->tier_up();
+            }
             scene()->removeItem(this);
             delete this;
             return;

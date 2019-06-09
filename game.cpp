@@ -66,6 +66,8 @@ void game::mouseReleaseEvent(QMouseEvent* event)
 }
 void player::spawn()
 {
+    enemy* enemy_0 = new enemy();
+    scene()->addItem(enemy_0);
     if(game0->score_0->get_value() % 10 == 0 && game0->score_0->get_value())
         game0->do_spawn = true;
     if(game0->do_spawn)
