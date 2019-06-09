@@ -8,12 +8,13 @@ game::game()
 {
     // create the scene
     enemy_counter = 0;
+    remaining_enemies = 0;
     do_spawn = false;
     score_0  = new text(nullptr, QString("Score:"), Qt::blue, 16);
     life_0   = new text(nullptr, QString("Life:"), Qt::red, 15);
     player_0 = new player(this);
 
-    QGraphicsScene* scene = new QGraphicsScene();
+    scene = new QGraphicsScene();
     setScene(scene);
     scene->setSceneRect(0, 0, consts::screen_width, consts::screen_height);
     setBackgroundBrush(QBrush(Qt::green, Qt::SolidPattern));
@@ -30,7 +31,7 @@ game::game()
     QObject::connect(timer, SIGNAL(timeout()), player_0, SLOT(spawn()));
     QObject::connect(timer_0, SIGNAL(timeout()), player_0, SLOT(make_bullets()));
 
-    timer->start(2000);
+    timer->start(1000);
 
     //    background music
     //    QMediaPlayer* music = new QMediaPlayer();
@@ -54,7 +55,7 @@ void game::mousePressEvent(QMouseEvent* event)
     }
     if(event->button() == Qt::MouseButton::RightButton)
     {
-        player_0->add_bullet(1, consts::step_size,":/images/kaczka2.png");
+        player_0->add_bullet(1, consts::step_size * 10,":/images/kaczka2.png");
     }
 }
 
@@ -65,21 +66,19 @@ void game::mouseReleaseEvent(QMouseEvent* event)
 }
 void player::spawn()
 {
+    if(game0->score_0->get_value() % 10 == 0 && game0->score_0->get_value())
+        game0->do_spawn = true;
     if(game0->do_spawn)
     {
         enemy* enemy_0 = new enemy(":/images/enemy_1_angry.png", 40, 0);
-        game0->do_spawn = false;
         scene()->addItem(enemy_0);
+        game0->do_spawn = false;
     }
     if(game0->enemy_counter < 10)
     {
         enemy* enemy_0 = new enemy();
         scene()->addItem(enemy_0);
         game0->enemy_counter++;
-    }
-    else
-    {
-        game0->do_spawn = true;
-        game0->enemy_counter = 0;
+        game0->remaining_enemies++;
     }
 }
