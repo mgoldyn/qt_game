@@ -61,7 +61,6 @@ enemy::enemy(const QString image_dir, const unsigned int step_size, const unsign
 {
     this->direction_x = false;
     this->direction_y = false;
-    this->hp = 2;
     moving_object::setPos(rand() % 700, 0);
 }
 

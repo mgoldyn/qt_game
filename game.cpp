@@ -1,5 +1,5 @@
 #include "game.h"
-#include "enemy.h"
+#include "enemy_0.h"
 #include <QGraphicsTextItem>
 #include <QFont>
 #include <QMediaPlayer>
@@ -66,20 +66,20 @@ void game::mouseReleaseEvent(QMouseEvent* event)
 }
 void player::spawn()
 {
-    enemy* enemy_0 = new enemy();
-    scene()->addItem(enemy_0);
+    enemy_0* enemy_1 = new enemy_0();
+    scene()->addItem(enemy_1);
     if(game0->score_0->get_value() % 10 == 0 && game0->score_0->get_value())
         game0->do_spawn = true;
     if(game0->do_spawn)
     {
-        enemy* enemy_0 = new enemy(":/images/enemy_1_angry.png", 40, 0);
-        scene()->addItem(enemy_0);
+        enemy_0* enemy_1= new enemy_0(":/images/enemy_1_angry.png", 25, 5);
+        scene()->addItem(enemy_1);
         game0->do_spawn = false;
     }
     if(game0->enemy_counter < 10)
     {
-        enemy* enemy_0 = new enemy();
-        scene()->addItem(enemy_0);
+        enemy_0* enemy_1 = new enemy_0();
+        scene()->addItem(enemy_1);
         game0->enemy_counter++;
         game0->remaining_enemies++;
     }

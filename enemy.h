@@ -8,6 +8,7 @@
 class enemy : public moving_object
 {
     Q_OBJECT
+protected:
     bool direction_x;
     bool direction_y;
     void add_gift();
