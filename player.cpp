@@ -25,93 +25,63 @@ void player::tier_up()
     this->bullet_tier++;
 }
 
-void player::add_bullet(const unsigned int tier      = 1,
-                        const unsigned int step_size = consts::step_size,
-                        const QString image_dir      = ":/images/kaczka.png")
+void player::add_bullet(const unsigned int tier         = 1,
+                        const unsigned int bullet_speed = consts::bullet_step,
+                        const QString image_dir         = ":/images/kaczka.png")
 {
-    bullet* bull = new bullet(image_dir, step_size, tier);
+    bullet* bull = new bullet(image_dir, bullet_speed, tier);
     bull->set_attack_params(input_pack(this->x(), this->y(), bullet_sound));
     scene()->addItem(bull);
 }
 
+void player::add_bullets(      unsigned int in_case,
+                         const unsigned int num_of_cases)
+{
+    unsigned int first_case = 10 * in_case + 1;
+    //cases to generate bulelts
+    for (unsigned int case_num = first_case; case_num < first_case + num_of_cases; case_num++)
+    {
+        add_bullet(case_num, consts::bullet_step);
+    }
+}
+
 void player::make_bullets()
 {
-    switch(this->bullet_tier)
+    switch(bullet_tier)
     {
     case 1:
     {
-        add_bullet(1, 7);
+        add_bullet(bullet_tier);
 
         break;
     }
-
     case 2:
     {
-        add_bullet(21, 9);
-        add_bullet(22, 9);
+        add_bullets(bullet_tier, bullet_tier);
         break;
     }
-
     case 3:
     {
-        add_bullet(31, 14);
-        add_bullet(32, 14);
-        add_bullet(33, 14);
+        add_bullets(bullet_tier, bullet_tier);
         break;
     }
     case 4:
-        add_bullet(41, 15);
-        add_bullet(42, 15);
-        add_bullet(43, 15);
+        add_bullets(bullet_tier, 3);
         break;
     case 5:
-        add_bullet(51,25);
-        add_bullet(52,25);
-        add_bullet(53,25);
-        add_bullet(54,25);
+        add_bullets(bullet_tier, 4);
         break;
     case 6:
-        add_bullet(61,27);
-        add_bullet(62,27);
-        add_bullet(63,27);
-        add_bullet(64,27);
-        add_bullet(65,27);
+        add_bullets(bullet_tier, 5);
         break;
     case 7:
-        add_bullet(71,30);
-        add_bullet(72,30);
-        add_bullet(73,30);
-        add_bullet(74,30);
-        add_bullet(75,30);
-        add_bullet(75,30);
-        add_bullet(75,30);
+        add_bullets(bullet_tier, bullet_tier);
         break;
-
     }
 }
 
 void player::keyPressEvent(QKeyEvent* event)
 {
-    if(event->key() == Qt::Key_Left)
-        if(pos().x() - consts::step_size > 0)
-            setPos(x() - consts::step_size, y());
-    if(event->key() == Qt::Key_Right)
-        if(pos().x() + consts::step_size + consts::player_width < consts::screen_width)
-            setPos(x() + consts::step_size, y());
-    if(event->key() == Qt::Key_Down)
-    {
-        if(pos().y() < 800)
-            setPos(x(), y() + consts::step_size);
-        this->bullet_tier--;
-    }
-    if(event->key() == Qt::Key_Up)
-    {
-        if(pos().y() > 0)
-            setPos(x(), y() - consts::step_size);
-        this->bullet_tier++;
-    }
-    if(event->key() == Qt::Key_Space)
-        make_bullets();
     if(event->key() == Qt::Key_K)
         if(this->bullet_tier)
             this->bullet_tier--;

@@ -13,7 +13,6 @@ class game : public QGraphicsView
 {
 private:
     friend class player;
-    unsigned int enemy_counter;
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
@@ -27,6 +26,8 @@ public:
     text* score_0;
     text* life_0;
     QTimer* timer_0;
+    unsigned int enemy_counter;
+    unsigned int remaining_enemies;
 };
 
 #endif // GAME_H
